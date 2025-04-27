@@ -40,10 +40,6 @@ local cmp_action = lsp_zero.cmp_action()
 local cmp_format = require("lsp-zero").cmp_format({ details = true })
 
 cmp.setup({
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
   preselect = cmp.PreselectMode.None,
   completion = {
     completeopt = "menu,menuone,noinsert"
@@ -78,13 +74,32 @@ cmp.setup({
   formatting = cmp_format,
 })
 
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = function(_, bufnr)
-      return vim.b[bufnr].show_signs == true
-    end
-  }
-)
+vim.diagnostic.config({ virtual_text = true, signs = false })
 
 vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
+
+require("lspconfig").jdtls.setup({
+  settings = {
+    java = {
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-21",
+            path = "/home/st4r/.sdkman/candidates/java/current",
+            default = true,
+          }
+        }
+      }
+    }
+  }
+})
+
+require("lspconfig").lua_ls.setup {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
+}

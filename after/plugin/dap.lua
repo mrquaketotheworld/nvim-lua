@@ -27,7 +27,7 @@ vim.keymap.set("n", "<Leader>ds", function()
   widgets.centered_float(widgets.scopes)
 end)
 vim.fn.sign_define("DapStopped", { text = "▶" })
-vim.fn.sign_define("DapBreakpoint", { text = "•" })
+vim.fn.sign_define("DapBreakpoint", { text = "◉" })
 
 vim.keymap.set({ "n", "v" }, "<leader>dh", widgets.hover)
 require("nvim-dap-virtual-text").setup()

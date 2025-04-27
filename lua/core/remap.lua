@@ -21,8 +21,8 @@ vim.keymap.set("n", "<leader>e", ":set autochdir<cr>:Oil<cr>", {silent = true})
 vim.keymap.set("n", "<leader>!", ":qa!<cr>")
 
 -- Move lines
-vim.keymap.set("v", "J", ":m \'>+1<cr>gv=gv")
-vim.keymap.set("v", "K", ":m \'<-2<cr>gv=gv")
+vim.keymap.set("v", "J", ":m \'>+1<cr>gv=gv", {silent = true})
+vim.keymap.set("v", "K", ":m \'<-2<cr>gv=gv", {silent = true})
 
 -- CMD history navigation
 vim.keymap.set("c", "<C-p>", "<Up>")
@@ -42,9 +42,10 @@ vim.keymap.set("n", "<leader>o", "<C-w>o")
 vim.keymap.set("n", "<leader>q", "<C-w>q")
 
 -- Open terminal
-vim.keymap.set("n", "<leader>v", ":vsplit term://bash<cr><C-\\><C-n>:norm A<cr>", {silent = true})
-vim.keymap.set("n", "<leader>t", ":split term://bash<cr><C-\\><C-n>:norm A<cr>", {silent = true})
-vim.keymap.set("n", "<A-t>", "<C-w>l\"C:vsplit term://bash<cr><C-\\><C-n>" ..
+vim.keymap.set("n", "<leader>v", ":50vsplit term://bash<cr><C-\\><C-n>:norm A<cr>", {silent = true})
+vim.keymap.set("n", "<leader>t", ":10split term://bash<cr><C-\\><C-n>:norm A<cr>", {silent = true})
+vim.keymap.set("n", "<A-t>", "'C" ..
+                            "<C-w>l\"C:vsplit term://bash<cr><C-\\><C-n>" ..
                              ":split term://bash<cr><C-\\><C-n>" ..
                              ":split term://bash<cr><C-\\><C-n><C-w>h" ..
                              "35<C-w>>:ConjureLogSplit<cr>15<C-w>-" ..

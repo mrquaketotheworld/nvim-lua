@@ -30,7 +30,7 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
   "nvim-lualine/lualine.nvim",
-  { "phaazon/hop.nvim",     branch = "v2" },
+  { "phaazon/hop.nvim",          branch = "v2" },
   "tpope/vim-surround",
   "tpope/vim-repeat",
   "mattn/emmet-vim",
@@ -57,12 +57,11 @@ require("lazy").setup({
       signs = false
     }
   },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = true,
-    enable_moveright = false,
-  },
+  -- {
+  --   "altermo/ultimate-autopair.nvim",
+  --   event = { "InsertEnter", "CmdlineEnter" },
+  --   branch = "v0.6",
+  -- },
   {
     "stevearc/oil.nvim",
     opts = {},
@@ -74,17 +73,4 @@ require("lazy").setup({
     end
   },
   { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {
-      hint_prefix = {
-        above = "↙ ",
-        current = "← ",
-        below = "↖ "
-      },
-    },
-    config = function(_, opts) require "lsp_signature".setup(opts) end
-  },
-  "nvim-java/nvim-java"
 })
