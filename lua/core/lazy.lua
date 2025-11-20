@@ -25,8 +25,18 @@ require("lazy").setup({
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-buffer",
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
+  {
+    "mason-org/mason.nvim",
+    opts = {}
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
   "nvim-lualine/lualine.nvim",
@@ -34,6 +44,7 @@ require("lazy").setup({
   "tpope/vim-surround",
   "tpope/vim-repeat",
   "mattn/emmet-vim",
+  "andymass/vim-matchup",
   "Olical/conjure",
   "navarasu/onedark.nvim",
   "nvim-tree/nvim-web-devicons",
@@ -41,7 +52,6 @@ require("lazy").setup({
   "norcalli/nvim-colorizer.lua",
   "nelstrom/vim-visual-star-search",
   "equalsraf/neovim-gui-shim",
-  "andymass/vim-matchup",
   "mfussenegger/nvim-dap",
   "leoluz/nvim-dap-go",
   "theHamsta/nvim-dap-virtual-text",
@@ -58,19 +68,19 @@ require("lazy").setup({
     }
   },
   -- {
-  --   "altermo/ultimate-autopair.nvim",
-  --   event = { "InsertEnter", "CmdlineEnter" },
-  --   branch = "v0.6",
-  -- },
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-  },
-  {
-    "julienvincent/nvim-paredit",
-    config = function()
-      require("nvim-paredit").setup()
-    end
-  },
-  { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
-})
+    --   "altermo/ultimate-autopair.nvim",
+    --   event = { "InsertEnter", "CmdlineEnter" },
+    --   branch = "v0.6",
+    -- },
+    {
+      "stevearc/oil.nvim",
+      opts = {},
+    },
+    {
+      "julienvincent/nvim-paredit",
+      config = function()
+        require("nvim-paredit").setup()
+      end
+    },
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+  })
